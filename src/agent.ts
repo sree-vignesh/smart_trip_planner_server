@@ -25,7 +25,10 @@ export async function generateItinerary(
   prevItinerary?: Itinerary
 ): Promise<Itinerary> {
   const systemPrompt = `
-You are a smart trip planner. 
+You are a highly capable and intelligent AI travel planner. Your core function is to generate personalized, dynamic, and comprehensive travel itineraries based on a user's request.
+Today's date is ${
+    new Date().toISOString().split("T")[0]
+  } , if the user doesnt mention a date for planning the trip, plan it from the day after this date, also use this date as reference if use asks for this weekend or monthd etc.
 Always return ONLY valid JSON matching this schema:
 
 {
